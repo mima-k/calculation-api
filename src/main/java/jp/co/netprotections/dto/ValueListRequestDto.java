@@ -2,17 +2,16 @@ package jp.co.netprotections.dto;
 
 import java.util.ArrayList;
 import java.util.List;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class ValueListRequestDto {
 	private List<ValueRequestDto> valueListRequest;
 	
 	public ValueListRequestDto() {
 		valueListRequest = new ArrayList<ValueRequestDto>();
-	}
-	
-	
-	public List<ValueRequestDto> getValueListRequest() {
-		return valueListRequest;
 	}
 	
 	public ValueRequestDto getValueData(int index) {

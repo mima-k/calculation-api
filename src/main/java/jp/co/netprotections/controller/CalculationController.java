@@ -10,8 +10,6 @@ import org.springframework.http.MediaType;
 
 import jp.co.netprotections.dto.ValueListRequestDto;
 import jp.co.netprotections.dto.ValueListResponseDto;
-import jp.co.netprotections.dto.ValueRequestDto;
-import jp.co.netprotections.dto.ValueResponseDto;
 import jp.co.netprotections.service.CalculationService;
 
 @RestController
@@ -19,17 +17,11 @@ public class CalculationController {
 	@Autowired
 	private CalculationService calculationService;
 	
-	@RequestMapping(value = "/main", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/main", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ValueListResponseDto execute(
-			@RequestBody ValueListRequestDto request) {
-		ValueListResponseDto response = new ValueListResponseDto();
-		for(int i = 0; i < request.getValueListRequest().size(); i++) {
-			ValueRequestDto requestData = request.getValueData(i);
-			ValueResponseDto calculatedData = calculationService.calculate(requestData);
-			response.addSquareValue(calculatedData);
-		}
-		System.out.println(response.toString());
-		return response;
+	public ValueListResponseDto json(
+			 ValueListRequestDto request) {
+		System.out.println(calculationService.createResponse(request));
+		return calculationService.createResponse(request);
 	}
 }
