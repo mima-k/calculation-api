@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.MediaType;
 
 import jp.co.netprotections.dto.ValueListRequestDto;
 import jp.co.netprotections.dto.ValueListResponseDto;
@@ -18,7 +19,7 @@ public class CalculationController {
 	@Autowired
 	private CalculationService calculationService;
 	
-	@RequestMapping(value = "/main", method = RequestMethod.POST, consumes = org.springframework.http.MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/main", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
 	public ValueListResponseDto execute(
 			@RequestBody ValueListRequestDto request) {
@@ -28,6 +29,7 @@ public class CalculationController {
 			ValueResponseDto calculatedData = calculationService.calculate(requestData);
 			response.addSquareValue(calculatedData);
 		}
+		System.out.println(response.toString());
 		return response;
 	}
 }

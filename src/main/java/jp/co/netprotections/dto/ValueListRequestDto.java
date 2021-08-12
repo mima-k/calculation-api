@@ -6,6 +6,11 @@ import java.util.List;
 public class ValueListRequestDto {
 	private List<ValueRequestDto> valueListRequest;
 	
+	public ValueListRequestDto() {
+		valueListRequest = new ArrayList<ValueRequestDto>();
+	}
+	
+	
 	public List<ValueRequestDto> getValueListRequest() {
 		return valueListRequest;
 	}
@@ -14,7 +19,7 @@ public class ValueListRequestDto {
 		return valueListRequest.get(index);
 	}
 	
-//	public void addSquareValue(ValueRequestDto request) {
-//		valueListRequest.add(request);
-//	}
+	public void addSquareValue(ValueRequestDto request) {
+		valueListRequest.add(request);
+	}
 }
