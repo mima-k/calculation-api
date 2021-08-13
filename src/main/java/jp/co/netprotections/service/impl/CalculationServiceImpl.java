@@ -20,7 +20,7 @@ public class CalculationServiceImpl implements CalculationService {
 	}
 	
 	@Override
-	public ValueListResponseDto createResponse(ValueListRequestDto requestList) {
+	public ValueListResponseDto squareValue(ValueListRequestDto requestList) {
 		List<ValueResponseDto> calculatedList = new ArrayList<ValueResponseDto>();
 		ValueListResponseDto responseList = new ValueListResponseDto();
 		for(int i = 0; i < requestList.getValueListRequest().size(); i++) {

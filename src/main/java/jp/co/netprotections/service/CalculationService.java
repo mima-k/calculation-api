@@ -10,5 +10,5 @@ import jp.co.netprotections.service.CalculationService;
 @Service
 public interface CalculationService {
 	public int calculate(ValueRequestDto request);
-	public ValueListResponseDto createResponse(ValueListRequestDto requestList);
+	public ValueListResponseDto squareValue(ValueListRequestDto requestList);
 }

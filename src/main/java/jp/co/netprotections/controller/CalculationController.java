@@ -17,11 +17,9 @@ public class CalculationController {
 	@Autowired
 	private CalculationService calculationService;
 	
-	@RequestMapping(value = "/main", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/api", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseBody
-	public ValueListResponseDto json(
-			 ValueListRequestDto request) {
-		System.out.println(calculationService.createResponse(request));
-		return calculationService.createResponse(request);
+	public ValueListResponseDto execute(@RequestBody ValueListRequestDto request) {
+		return calculationService.squareValue(request);
 	}
 }
