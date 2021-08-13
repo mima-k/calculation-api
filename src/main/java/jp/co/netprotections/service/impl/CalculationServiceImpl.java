@@ -26,7 +26,7 @@ public class CalculationServiceImpl implements CalculationService {
 		for(int i = 0; i < requestList.getValueListRequest().size(); i++) {
 			ValueResponseDto response = new ValueResponseDto();
 			ValueRequestDto request = requestList.getValueData(i);
-			response.setValue(calculate(request));
+			response.setSquaredValue(calculate(request));
 			calculatedList.add(response);
 		}
 		responseList.setValueListResponse(calculatedList);
